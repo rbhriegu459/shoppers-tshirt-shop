@@ -9,10 +9,16 @@ function Header() {
         <h2>Shop</h2>
       </div>
 
-      <button className={classes.cartBtn}>
-        <img src={cart} className={classes.cartImage} />
-        <span className={classes.cartSpan}>Cart</span>
-      </button>
+      <div className={classes.navLinks}>
+        <a href="/">Home</a>
+        <a href="addProduct">Add Product</a>
+        <a href="products">Products</a>
+        <button className={classes.cartBtn}>
+          <img src={cart} className={classes.cartImage} />
+          <span className={classes.cartSpan}> Cart </span>
+          <h4>(0)</h4>
+        </button>
+      </div>
     </nav>
   );
 }

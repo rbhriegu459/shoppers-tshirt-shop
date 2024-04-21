@@ -2,7 +2,6 @@
     display: flex;
     justify-content: space-between;
     padding: 0 30px;
-    /* position: fixed; */
 }
 
 .heading{
@@ -13,11 +12,29 @@
     color: rgb(193, 32, 32);
 }
 
+.navLinks{
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+    align-items: center;
+}
+
+.navLinks a{
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+}
+
+.navLinks a:hover{
+    cursor: pointer;
+    color: rgb(193, 32, 32);
+    font-weight: 700;
+}
+
 .cartBtn{
     padding: 0 10px;
     height: 35px;
     color: white;
-    margin-top: 14px;
     background-color: rgb(193, 32, 32);
     display: flex;
     align-items: center;
@@ -35,5 +52,5 @@
 
 .cartSpan{
     font-weight: 700;
-    margin-left: 5px;
+    margin: 0 5px 0 3px;
 }
