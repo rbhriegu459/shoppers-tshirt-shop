@@ -5,34 +5,41 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AddProduct from "./components/AddProduct/AddProduct";
 import { useState } from "react";
 import Products from "./components/Products/Products";
+import Cart from './components/Cart/Cart.js';
 
 function App() {
-  const [products, setProducts] = useState([
-    {
-      tshirtName: "gucci",
-      description: "cotton",
-      price: 0,
-      lQuantity: 0,
-      mQuantity: 0,
-      sQuantity:0,
-    },
-  ]);
+  const [products, setProducts] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
+  const [cartVisible, setCartVisible] = useState(false);
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  const addToCart = (item) =>{
+    setTotalPrice((prev) => {
+      return Number(prev) + Number(item.price);
+    })
+    setCartItems((prev) => {
+      return [...prev, item];
+    })
+  }
 
   const add = (prod) => {
     setProducts((prev) => {
       return [...prev, prod];
     });
   };
-  console.log(products);
+
   return (
     <BrowserRouter>
-      <Header />
+      <Header setCartVisible ={setCartVisible} noOfItems={cartItems}/>
+      {cartVisible && (
+          <Cart cartItems={cartItems} setCartVisible={setCartVisible} setCartItems={setCartItems} totalPrice={totalPrice}/>
+        )}
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/addProduct" element={<AddProduct add={add} products={products} />}></Route>
+        <Route path="/addProduct" element={<AddProduct add={add} products={products} addToCart={addToCart}/>}></Route>
         <Route
           path="/products"
-          element={<Products products={products}/>}
+          element={<Products products={products} addToCart={addToCart} />}
         ></Route>
       </Routes>
     </BrowserRouter>

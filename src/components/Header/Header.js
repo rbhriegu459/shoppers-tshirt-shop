@@ -1,7 +1,7 @@
 import classes from "./Header.module.css";
 import cart from "../../assests/cart.png";
 
-function Header() {
+function Header({setCartVisible, noOfItems}) {
   return (
     <nav className={classes.nav}>
       <div className={classes.heading}>
@@ -13,10 +13,10 @@ function Header() {
         <a href="/">Home</a>
         <a href="addProduct">Add Product</a>
         <a href="products">Products</a>
-        <button className={classes.cartBtn}>
+        <button className={classes.cartBtn} onClick={() => setCartVisible(true)}>
           <img src={cart} className={classes.cartImage} />
           <span className={classes.cartSpan}> Cart </span>
-          <h4>(0)</h4>
+          <h4>({noOfItems.length})</h4>
         </button>
       </div>
     </nav>

@@ -1,9 +1,8 @@
-function Products({ products }) { 
+function Products({ products, addToCart }) { 
+
     if (!Array.isArray(products)) {
       return <div>No products available</div>;
     }
-  
-    // If products is an array, proceed with rendering the table
     return (
       <div>
         <table>
@@ -28,7 +27,7 @@ function Products({ products }) {
                   <button>{item.sQuantity}</button>
                 </td>
                 <td>
-                  <button>Add to cart</button>
+                  <button onClick={() => addToCart(item)}>Add to cart</button>
                 </td>
               </tr>
             ))}

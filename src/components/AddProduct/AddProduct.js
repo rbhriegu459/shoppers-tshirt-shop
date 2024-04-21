@@ -2,7 +2,7 @@ import { useState } from "react";
 import classes from "./AddProduct.module.css";
 import Products from "../Products/Products";
 
-function AddProduct({add , products}) {
+function AddProduct({add , products, addToCart}) {
 
   const [tshirtName, setTshirtName] = useState("");
   const [description, setDescription] = useState("");
@@ -15,8 +15,6 @@ function AddProduct({add , products}) {
     e.preventDefault();
 
     add({tshirtName, description, price, lQuantity, mQuantity, sQuantity});
-
-    console.log({tshirtName, description, price, lQuantity, mQuantity, sQuantity});
 
     setTshirtName("");
     setDescription("");
@@ -67,7 +65,7 @@ function AddProduct({add , products}) {
       </form>
     </div>
 
-    <Products products={products}/>
+    <Products products={products} addToCart={addToCart}/>
     </div>
   );
 }
