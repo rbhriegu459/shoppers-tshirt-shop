@@ -1,7 +1,8 @@
 import { useState } from "react";
 import classes from "./AddProduct.module.css";
+import Products from "../Products/Products";
 
-function AddProduct({add}) {
+function AddProduct({add , products}) {
 
   const [tshirtName, setTshirtName] = useState("");
   const [description, setDescription] = useState("");
@@ -26,7 +27,8 @@ function AddProduct({add}) {
   }
 
   return (
-    <div className={classes.mainDiv}>
+    <div>
+      <div className={classes.mainDiv}>
       <form onSubmit={handleSubmit}>
         <label>
           T-shirt Name-
@@ -63,6 +65,9 @@ function AddProduct({add}) {
 
         <button type="submit"className={classes.submitBtn}> Add Product</button>
       </form>
+    </div>
+
+    <Products products={products}/>
     </div>
   );
 }
