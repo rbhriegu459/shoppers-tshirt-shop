@@ -1,0 +1,19 @@
+.home {
+  position: relative;
+}
+
+.shopping {
+  height: 650px;
+  width: 100%;
+  /* position: relative; */
+}
+
+.shopText {
+  position: absolute;
+  top: 35%;
+  left: 10%;
+  color: white;
+  font-weight: 800;
+  font-size: 45px;
+  text-shadow: 2px 2px 8px #000000;;
+}
